@@ -28,7 +28,8 @@ const removeW3Elements = (domain) => ({
 const app = () => {
   console.info(`${name} v${version} loaded.`);
   window.onload = () => {
-    removeW3Elements(window.location.hostname + 'a');
+    removeW3Elements(window.location.hostname);
   };
+};
 } 
 app();
