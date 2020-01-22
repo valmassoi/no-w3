@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "No W3",
+  "version": "0.1.0",
+  "description": "Removes W3schools results from Google and DuckDuckGo searches.",
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.duckduckgo.com/*",
+        "*://*.google.com/*"
+      ],
+      "js": [
+        "build/app.bundle.js"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+}
