@@ -6,11 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
+    "bundle": "webpack && zip -r -FS ./bundle.zip ./build manifest.json",
+    "bundle-src": "zip -r -FS ./src-bundle.zip ./ -x \"*.git*\" -x \"*.zip*\" -x \"./node_modules/*\" -x \"./build/*\" -x \"./.vscode/*\" \"*DS_Store\"",
     "lint": "eslint ./src --ext .js",
     "lint:fix": "eslint ./src --fix --ext .js"
   },
   "author": "@valmassoi",
   "license": "MIT",
+  "engines": {
+    "node": ">=10.13"
+  },
   "devDependencies": {
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
