@@ -21,15 +21,17 @@ const removeFromGoogle = () => {
   });
 };
 
+const unsupportedWarning = (domain) => console.warn(`${name}: ${domain} is not supported.`);
+
 const removeW3Elements = (domain) => ({
-  'www.duckduckgo.com': removeFromDDG(),
-  'www.google.com': removeFromGoogle(),
-})[domain] || console.warn(`${name}: ${domain} is not supported.`);
+  'duckduckgo.com': removeFromDDG,
+  'google.com': removeFromGoogle,
+})[domain] || unsupportedWarning(domain);
 
 const app = () => {
   console.info(`${name} v${version} loaded.`);
   window.onload = () => {
-    removeW3Elements(window.location.hostname);
+    removeW3Elements(window.location.hostname.replace('www.', ''))();
   };
 };
 app();
